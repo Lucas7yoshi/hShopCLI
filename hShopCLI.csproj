@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Parsers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Costura.Fody" Version="5.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
