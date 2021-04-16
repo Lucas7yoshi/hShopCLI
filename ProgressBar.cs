@@ -7,13 +7,14 @@ using System.Threading;
 /// </summary>
 public class ProgressBar : IDisposable, IProgress<double>
 {
-	private const int blockCount = 20;
+	private const int blockCount = 50;
 	private readonly TimeSpan animationInterval = TimeSpan.FromSeconds(1.0 / 8);
 	private const string animation = @"|/-\";
 
 	private readonly Timer timer;
 
 	private double currentProgress = 0;
+	private string extText = "";
 	private string currentText = string.Empty;
 	private bool disposed = false;
 	private int animationIndex = 0;
