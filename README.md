@@ -2,9 +2,7 @@
 A crappy command line thing for hShop
 
 # Download 
-Download the source and compile it yourself, ill maybe add a appveyor eventually
-
-reason: because i made it in NET 5 and if you don't have NET 5 then the compiled pre packaged EXE is like... 60 MB
+head to the releases page, on the right side of the page
 
 # Why?
 cause i got bored
