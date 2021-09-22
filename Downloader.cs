@@ -17,7 +17,7 @@ namespace hShopCLI
 
         public Downloader(string urlIn)
         {
-            wc = new();
+            wc = new WebClient();
             wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
 
             url = new Uri(urlIn);
@@ -26,13 +26,13 @@ namespace hShopCLI
 
         public Downloader(Uri uriIn)
         {
-            wc = new();
+            wc = new WebClient();
             url = uriIn;
         }
 
         public async Task BeginDownload(string destination)
         {
-            pb = new();
+            pb = new WebClient();
 
             wc.DownloadFileAsync(url, destination);
             while (!DownloadComplete)
