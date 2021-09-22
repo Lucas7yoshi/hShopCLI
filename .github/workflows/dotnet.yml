@@ -28,7 +28,19 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: ${{matrix.dotnet}}
+    - name: cache nuget
+      uses: actions/cache@v2.1.6
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }} #hash of project files
+        restore-keys: |
+          ${{ runner.os }}-nuget-
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build --no-restore --configuration Release -o "hShopCLI-${{platformname}}"
+    - name: Package
+    - uses: edgarrc/action-7z@v1
+      with:
+        args: 7z a -t7z -mx=9 "hShopCLI-${{platformname}}.7z" ./hShopCLI-${{platformname}}
+      
