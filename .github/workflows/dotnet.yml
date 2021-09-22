@@ -1,0 +1,33 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        dotnet: ['3.1.x', '5.0.x']
+        os: ['windows-latest', 'ubuntu-latest', 'macos-latest']
+        include:
+        - os: 'windows-latest'
+          platformname: 'windows'
+        - os: 'ubuntu-latest'
+          platformname: 'linux'
+        - os: 'macos-latest'
+          platformname: 'mac'
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{matrix.dotnet}}
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
