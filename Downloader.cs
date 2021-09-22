@@ -32,7 +32,7 @@ namespace hShopCLI
 
         public async Task BeginDownload(string destination)
         {
-            pb = new WebClient();
+            pb = new ProgressBar();
 
             wc.DownloadFileAsync(url, destination);
             while (!DownloadComplete)
