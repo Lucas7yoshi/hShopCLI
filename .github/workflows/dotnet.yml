@@ -32,9 +32,9 @@ jobs:
       uses: actions/cache@v2.1.6
       with:
         path: ~/.nuget/packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }} #hash of project files
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}-hshopcli #hash of project files
         restore-keys: |
-          ${{ runner.os }}-nuget-
+          ${{ runner.os }}-nuget-hshopcli
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
