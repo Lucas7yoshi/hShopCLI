@@ -39,8 +39,10 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore --configuration Release -o "hShopCLI-${{matrix.platformname}}"
-    - name: Package
-      uses: edgarrc/action-7z@v1
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2.2.4
       with:
-        args: 7z a -t7z -mx=9 "hShopCLI-${{matrix.platformname}}.7z" ./hShopCLI-${{matrix.platformname}}
+        name: hShopCLI-${{matrix.platformname}}
+        path: hShopCLI-${{matrix.platformname}}
+        retention-days: 60
       
