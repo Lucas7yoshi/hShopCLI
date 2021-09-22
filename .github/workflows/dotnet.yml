@@ -38,9 +38,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore --configuration Release -o "hShopCLI-${{platformname}}"
+      run: dotnet build --no-restore --configuration Release -o "hShopCLI-${{matrix.platformname}}"
     - name: Package
       uses: edgarrc/action-7z@v1
       with:
-        args: 7z a -t7z -mx=9 "hShopCLI-${{platformname}}.7z" ./hShopCLI-${{platformname}}
+        args: 7z a -t7z -mx=9 "hShopCLI-${{matrix.platformname}}.7z" ./hShopCLI-${{matrix.platformname}}
       
