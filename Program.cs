@@ -51,7 +51,7 @@ namespace hShopCLI
                 if (results.Count > 4)
                     Console.Clear();
 
-                List<string> searchResults = new();
+                List<string> searchResults = new List<string>();
 
                 for (int i = 0; i < results.Count; i++)
                 {
