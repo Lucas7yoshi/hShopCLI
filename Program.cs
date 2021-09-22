@@ -10,7 +10,7 @@ namespace hShopCLI
 {
     class Program
     {
-        public const string version = "0.0.1";
+        public const string version = "0.0.2";
 
         private static hShop shop;
 
@@ -18,7 +18,7 @@ namespace hShopCLI
         {
             Console.WriteLine($"hShopCLI {version} by Lucas7yoshi");
             Console.WriteLine("Loading index...");
-            shop = new();
+            shop = new hShop();
 
             var index = await shop.GetIndex();
             while (true)
